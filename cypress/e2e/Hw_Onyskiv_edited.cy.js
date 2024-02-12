@@ -92,7 +92,9 @@ describe('Check toasters', () => {
                 expect(toasterAppearance).contains(inputData.expectedResult.content);
                 expect(toasterAppearance).to.have.attr('data-name', inputData.expectedResult.icon);
                 expect(toasterAppearance).to.have.css('background-color', inputData.expectedResult.color);
-                expect(toasterAppearance).to.have.css('justify-content', inputData.expectedResult.position1).and('align-items', inputData.expectedResult.position2)
+                expect(toasterAppearance).to.have.css('justify-content', inputData.expectedResult.position1);
+                expect(toasterAppearance).to.have.css('align-items', inputData.expectedResult.position2);
+
             })
 
         })

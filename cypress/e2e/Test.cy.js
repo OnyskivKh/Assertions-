@@ -12,8 +12,8 @@ let inputData = [
             title: 'Test 1',
             content: 'Test content 1',
             color: 'rgb(0, 214, 143)',
-            position1: 'normal',
-            position2: 'center'
+            position1: 'flex-end',
+            position2: 'flex-start'
         }
     },
     {
@@ -29,8 +29,8 @@ let inputData = [
             title: 'Test 2',
             content: 'Test content 2',
             color: 'rgb(0, 149, 255)',
-            position1: 'normal',
-            position2: 'center'
+            position1: 'flex-start',
+            position2: 'flex-start'
         }
     },
     {
@@ -46,8 +46,8 @@ let inputData = [
             title: 'Test 3',
             content: 'Test content 3',
             color: 'rgb(255, 170, 0)',
-            position1: 'normal',
-            position2: 'center'
+            position1: 'flex-start',
+            position2: 'flex-end'
         }
     },
     {
@@ -63,8 +63,8 @@ let inputData = [
             title: 'Test 4',
             content: 'Test content 4',
             color: 'rgb(255, 61, 113)',
-            position1: 'normal',
-            position2: 'center'
+            position1: 'flex-end',
+            position2: 'flex-end'
         }
     }
 ];
@@ -91,8 +91,8 @@ describe('Check toasters', () => {
                 expect(toasterAppearance.find('.icon-container g [data-name]')).to.have.attr('data-name', inputData.expectedResult.icon);
                 expect(toasterAppearance).to.contain(inputData.expectedResult.title);
                 expect(toasterAppearance).to.contain(inputData.expectedResult.content);
-                expect(toasterAppearance).to.have.css('justify-content', inputData.expectedResult.position1);
-                expect(toasterAppearance).to.have.css('align-items', inputData.expectedResult.position2);
+                expect(toasterAppearance.closest('div[dir="ltr"]')).to.have.css('justify-content', inputData.expectedResult.position1);
+                expect(toasterAppearance.closest('div[dir="ltr"]')).to.have.css('align-items', inputData.expectedResult.position2);
                 cy.get('nb-toastr-container nb-toast').click();
             });
         });
